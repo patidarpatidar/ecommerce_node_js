@@ -26,8 +26,11 @@ footer {
   background-color: #111;
   color: white;
   bottom: 0;
+  margin: 0;
+  padding: 0;
   position:absolute;
-  width: 100%;
+  overflow: hidden !important;
+  width: 99%;
 }
 .nav-ul .right-li{
   float: right;
@@ -41,6 +44,14 @@ input[type=text],input[type=password], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+.responsive-table{
+  width: 50%;
+  padding: 3px;
+  
+}
+.responsive-table td{
+  text-align: center;
 }
 
 .submit{
