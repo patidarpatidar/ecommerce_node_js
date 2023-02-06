@@ -5,6 +5,7 @@ require('./db/config');
 const app = express();
 const cors = require('cors');
 const { response } = require('express');
+const nodemailer = require("nodemailer");
 
 app.use(express.json());
 app.use(cors())
@@ -25,6 +26,25 @@ app.post("/register",async (req,res)=>{
     })
 })
 
+app.get('/sendmail',async(req,res)=>{
+    let testAccount = await nodemailer.createTestAccount();
+    let transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        secure: false, 
+        auth: {
+          user: testAccount.user, 
+          pass: testAccount.pass, 
+        },
+      });
+      let info = await transporter.sendMail({
+        from: '"Fred Foo 👻" <foo@example.com>', 
+        to: "bar@example.com, baz@example.com", 
+        subject: "Hello ✔", 
+        text: "Hello world?", 
+        html: "<b>Hello world?</b>", 
+      });
+})
 app.post("/login",async (req,res)=>{
     if(req.body.email && req.body.password){
         let user = await User.findOne(req.body).select("-password")

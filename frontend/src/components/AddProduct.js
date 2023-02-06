@@ -41,8 +41,6 @@ const AddProduct = () =>{
         })
         res = await res.json();
         return res.url;
-
-        
       }
     const handleAddProduct = async(e) =>{
         e.preventDefault();

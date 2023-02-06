@@ -24,6 +24,8 @@ const Signup = () =>{
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
+        const email = await fetch('http://localhost:5000/sendmail');
+        console.log(email);
         let result = await fetch('http://localhost:5000/register',{
             method:"POST",
             body:JSON.stringify({...user}),
