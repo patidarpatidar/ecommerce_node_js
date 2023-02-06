@@ -64,6 +64,7 @@ const ProductList = () =>{
                     <th>Price</th>
                     <th>Category</th>
                     <th>Company</th>
+                    <th>img</th>
                     <th>Operation</th>
                     </tr>
                   
@@ -80,6 +81,7 @@ const ProductList = () =>{
                                     <td>{product.price}</td>
                                     <td>{product.category}</td>
                                     <td>{product.company}</td>
+                                    <td><img src={product.mediaUrl} width={50} height={50}/></td>
                                     <td>
                                         <button onClick={()=>handleDelete(product._id)}>Delete </button> 
                                         <Link to={`update/${product._id}`}> Update</Link>

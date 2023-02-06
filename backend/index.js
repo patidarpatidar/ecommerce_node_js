@@ -37,7 +37,6 @@ app.post("/login",async (req,res)=>{
                     res.send({user,auth:token})
                 }
             })
-            
         }
         else{
             res.send('No user.....')
